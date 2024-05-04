@@ -1,0 +1,53 @@
+/* scrollbar */
+@import 'simplebar-react/dist/simplebar.min.css';
+
+.advertise{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.logo-guide{
+    /* color: white; */
+    padding: 5px;
+    width: 80px !important;
+    height: 80px !important;
+}
+/* 
+.logo-name{
+    margin-top: 15px;
+    font-size: 23px;
+    color: black;
+    font-family:andika, sans-serif;
+} */
+
+.platypi-uniquifier{
+  font-family: "Platypi", serif;
+  margin-top: 15px;
+  font-size: 23px;
+  font-weight:600;
+  font-style: normal;
+  color:rgb(0, 35, 65);
+}
+
+.platypi-uniquifier2{
+  font-family: "Platypi", serif;
+  margin-top: 13px;
+  font-size: 20px;
+  font-weight:600;
+  font-style: normal;
+  /* margin-left: 0; */
+  color:rgb(0, 35, 65);
+}
+.platypi-uniquifier3{
+  font-family: "Platypi", serif;
+  margin-top: 13px;
+  font-size: 20px;
+  font-weight:600;
+  margin-bottom: 5px;
+  font-style: normal;
+  margin-left: "40px";
+  color:white;
+}
+/* .foo{
+    display: flex;
+} */

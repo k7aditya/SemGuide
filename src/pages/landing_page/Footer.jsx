@@ -12,11 +12,11 @@ import Typography from '@mui/material/Typography';
 
 // import SvgColor from 'src/components/svg-color';
 
-// const logoStyle = {
-//   width: "140px",
-//   height: "auto",
-//   cursor: "pointer",
-// };
+const logoStyle = {
+  width: "70px",
+  height: "auto",
+  cursor: "pointer",
+};
 
 // const icon = (name) => (
 //   <SvgColor src={`/assets/icons/navbar/${name}.svg`} sx={{ width: 1, height: 1 }} />
@@ -54,24 +54,20 @@ export default function Footer() {
       <Grid container alignItems="center" spacing={2}>
         {/* Logo */}
         <Grid item xs={12} sm={6} textAlign="center" justifyContent="center">
-          {/* <img
-            src={
-              "https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/61f12e6faf73568658154dae_SitemarkDefault.svg"
-            }
-            style={logoStyle}
-            alt="logo of SemGuide"
-          /> */}
-          <div className="platypi-uniquifier3">
-            {/* <img
-              className="logo-guide2"
-              src="/assets/icons/SemGuideLogo.png"
-              alt=""
-              style={logoStyle}
-            /> */}
-            SemGuide
-          </div>
+          <div className="platypi-uniquifier3 flex-container2">
+              <img
+                className="logo-guide2"
+                src="/assets/icons/SemGuideLogoWhite.png"
+                alt=""
+                style={logoStyle}
+              />
+              <span className="align-middle">SemGuide</span>
+            </div>
+
+            {/* asdf */}
+
           <p>
-            <Typography variant="body1" color="white" sx={{ mb: 1, fontSize: '1rem' }}>
+            <Typography variant="body1" color="white" sx={{ mt: -2, mb: 1, fontSize: '1rem', marginLeft: 2 }}>
               Acads, Simplified.
             </Typography>
           </p>

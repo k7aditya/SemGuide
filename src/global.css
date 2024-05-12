@@ -50,4 +50,23 @@
 }
 /* .foo{
     display: flex;
-} */
+} */.flex-container {
+  display: flex;
+  align-items: center; /* Aligns items vertically in the middle */
+  flex-direction: column;
+}
+.flex-container2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-guide2 {
+  margin-right: 10px; /* Adds some space between the image and the text */
+  margin-left: 0px;
+}
+
+.align-middle {
+  margin-top: 0px; /* Adjusts the vertical position of the text to align with the middle of the image */
+  margin-left: -10px;
+}

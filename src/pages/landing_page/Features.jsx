@@ -73,7 +73,7 @@ export default function Features() {
       </Box>
 
       {/* How It Works Section */}
-      {/* <Box sx={{ textAlign: "center" }}>
+      <Box sx={{ textAlign: "center" }}>
         <Typography
           variant="h2"
           component="div"
@@ -90,7 +90,7 @@ export default function Features() {
           alt="We'll have layout here through images of dashboard from switch sem to download 3-4 pics"
           style={{ maxWidth: "100%", height: "auto" }}
         />
-      </Box> */}
+      </Box>
     </Container>
   );
 }

@@ -1,4 +1,4 @@
-import AuthContext from 'src/auth/authContext'; // Adjust the import path as necessary
+import AuthContext from 'src/context/authContext'; // Adjust the import path as necessary
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -133,22 +133,22 @@ function SignUp() {
                   onChange={(e) => setUsername(e.target.value)}
                 />
               </Grid>
-                  <Grid item xs={12}>
-                    <Select
-                      fullWidth
-                      value={branch}
-                      onChange={handleBranchChange}
-                      displayEmpty
-                      inputProps={{ 'aria-label': 'Without label' }}
-                    >
-                      <MenuItem value="">
-                        <em>Select Branch</em>
-                      </MenuItem>
-                      <MenuItem value="IT">Information Technology</MenuItem>
-                      <MenuItem value="ITBI">IT with Business Informatics</MenuItem>
-                      <MenuItem value="ECE">Electronics and Communication Engineering</MenuItem>
-                    </Select>
-                  </Grid>
+              <Grid item xs={12}>
+                <Select
+                  fullWidth
+                  value={branch}
+                  onChange={handleBranchChange}
+                  displayEmpty
+                  inputProps={{ 'aria-label': 'Without label' }}
+                >
+                  <MenuItem value="">
+                    <em>Select Branch</em>
+                  </MenuItem>
+                  <MenuItem value="IT">Information Technology</MenuItem>
+                  <MenuItem value="ITBI">IT with Business Informatics</MenuItem>
+                  <MenuItem value="ECE">Electronics and Communication Engineering</MenuItem>
+                </Select>
+              </Grid>
               <Grid item xs={12}>
                 <TextField
                   required

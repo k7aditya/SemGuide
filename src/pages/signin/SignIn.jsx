@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
- 
-import AuthContext from 'src/auth/authContext'; // Adjust the import path as necessary
+
+import AuthContext from 'src/context/authContext'; // Adjust the import path as necessary
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 
-import UserRoleContext from 'src/auth/userRoleContext';
+import UserRoleContext from 'src/context/userRoleContext';
 
 // import {useNax}
 
@@ -24,7 +24,6 @@ import InputAdornment from '@mui/material/InputAdornment';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
 
 // import Router from 'src/routes/sections';
 

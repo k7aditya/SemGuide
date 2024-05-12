@@ -50,12 +50,13 @@
 }
 /* .foo{
     display: flex;
-} */.flex-container {
+} */
+/* .flex-container {
   display: flex;
   align-items: center; /* Aligns items vertically in the middle */
-  flex-direction: column;
-}
-.flex-container2{
+  /* flex-direction: column;
+} */ 
+.flex-container{
   display: flex;
   align-items: center;
   justify-content: center;

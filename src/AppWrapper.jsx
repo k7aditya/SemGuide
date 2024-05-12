@@ -1,8 +1,8 @@
 // AppWrapper.js
 import React from 'react';
 
-import { useUserRole } from 'src/auth/useUserRole'; // Adjust the import path as necessary
-import { UserRoleProvider } from 'src/auth/userRoleContext';
+import { useUserRole } from 'src/context/useUserRole'; // Adjust the import path as necessary
+import { UserRoleProvider } from 'src/context/userRoleContext';
 
 import App from './app';
  

@@ -54,7 +54,7 @@ export default function Footer() {
       <Grid container alignItems="center" spacing={2}>
         {/* Logo */}
         <Grid item xs={12} sm={6} textAlign="center" justifyContent="center">
-          <div className="platypi-uniquifier3 flex-container2">
+          <div className="platypi-uniquifier3 flex-container">
               <img
                 className="logo-guide2"
                 src="/assets/icons/SemGuideLogoWhite.png"

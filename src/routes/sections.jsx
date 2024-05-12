@@ -1,7 +1,7 @@
 import React, { lazy, Suspense, useContext } from 'react';
-import { Route, Routes, Outlet,  Navigate } from 'react-router-dom';
+import { Route, Routes, Outlet, Navigate } from 'react-router-dom';
 
-import AuthContext from 'src/auth/authContext';
+import AuthContext from 'src/context/authContext';
 import DashboardLayout from 'src/layouts/dashboard';
 
 const IndexPage = lazy(() => import('src/pages/app'));
@@ -13,9 +13,9 @@ const LandingPage = lazy(() => import('src/pages/landing_page/landing_page'));
 const SignInPage = lazy(() => import('src/pages/signin/SignIn'));
 const SignUpPage = lazy(() => import('src/pages/signin/SignUp'));
 const FeedbackPage = lazy(() => import('src/pages/feedback'));
- 
+
 export default function Router() {
-   const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn } = useContext(AuthContext);
 
   return (
     <Routes>
@@ -35,10 +35,10 @@ export default function Router() {
       >
         <Route index element={<IndexPage />} />
         {/* Define other routes here */}
-          <Route path="profile" element={<ProfilePage />} />
-          <Route path="info" element={<InfoPage />} />
-          <Route path="papers" element={<Papers />} />
-          <Route path="feedback" element={<FeedbackPage />} />
+        <Route path="profile" element={<ProfilePage />} />
+        <Route path="info" element={<InfoPage />} />
+        <Route path="papers" element={<Papers />} />
+        <Route path="feedback" element={<FeedbackPage />} />
       </Route>
       {/* <Route path="login" element={<LoginPage />} /> */}
       {/* Define other routes here */}
@@ -48,5 +48,5 @@ export default function Router() {
       <Route path="404" element={<Page404 />} />
       <Route path="*" element={<Navigate to="/404" replace />} />
     </Routes>
- );
+  );
 }

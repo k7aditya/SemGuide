@@ -1,5 +1,5 @@
-import React, {  useState , useContext} from 'react';
-import {  Link, useNavigate } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
@@ -17,7 +17,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 
 import { account } from 'src/_mock/account';
-import AuthContext from 'src/auth/authContext'; // Adjust the import path as necessary
+import AuthContext from 'src/context/authContext'; // Adjust the import path as necessary
 
 // ----------------------------------------------------------------------
 
@@ -38,8 +38,8 @@ export default function AccountPopover() {
   const [logoutDialogOpen, setLogoutDialogOpen] = useState(false);
 
   const [open, setOpen] = useState(null);
- const navigate = useNavigate();
- const { logout } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const { logout } = useContext(AuthContext);
 
   const handleOpen = (event) => {
     setOpen(event.currentTarget);
@@ -52,21 +52,21 @@ export default function AccountPopover() {
     logout();
     window.location.reload();
     const refreshToken = localStorage.getItem('token'); // Assuming the refresh token is stored as 'token' in local storage
-  
+
     try {
       const response = await fetch('http://127.0.0.1:8000/logout/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ refresh_token: refreshToken })
+        body: JSON.stringify({ refresh_token: refreshToken }),
       });
-  
+
       if (response.ok) {
         localStorage.removeItem('token');
-        console.log('successfully logged out')
-        navigate('/'); 
-        handleClose(); 
+        console.log('successfully logged out');
+        navigate('/');
+        handleClose();
       } else {
         console.error('Logout failed:', response.statusText);
       }
@@ -135,7 +135,7 @@ export default function AccountPopover() {
         ))} */}
         <Link to="/" style={{ textDecoration: 'none', color: '#637381' }}>
           <MenuItem key="Home" onClick={handleClose}>
-            Home 
+            Home
           </MenuItem>
         </Link>
         <Link to="/profile" style={{ textDecoration: 'none', color: '#637381' }}>

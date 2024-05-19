@@ -13,6 +13,14 @@ SemGuide is a comprehensive web application designed specifically for the studen
 - **Responsive Design:** Optimized for use on both desktop and mobile devices.
 - **Admin Panel:** Special administrative access for managing the content.
 
+## Preview
+![image](https://github.com/k7aditya/SemGuide/assets/63181474/95bfceff-fdf4-4c1b-a30c-b34d5a128f4c)
+![image](https://github.com/k7aditya/SemGuide/assets/63181474/dac7c1c7-44bc-47d8-a7f3-c0ab5291b25d)
+![image](https://github.com/k7aditya/SemGuide/assets/63181474/b926667c-0b51-4c01-8c8b-a204e064c7f3)
+![image](https://github.com/k7aditya/SemGuide/assets/63181474/b7c732b5-ce3a-4741-9d6a-4a5e3624250f)
+
+
+
 ## Getting Started
 
 ### Prerequisites

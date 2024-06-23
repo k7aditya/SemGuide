@@ -57,9 +57,9 @@ For any enquiries or support, please contact:
 - Aditya Khairnar
 - Siddhenthi Uday Kumar
 - Jatavath Siddhartha Nayak
-- Suveeksha Reddy
-- Varshitha Reddy
-- Moulya Tammina
+- Nomula Suveeksha Reddy
+- Gajulapalli Sai Varshitha
+- Tammina Moulya
 
 
 

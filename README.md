@@ -53,6 +53,13 @@ Ensure that the backend server is running and properly configured to handle auth
 For any enquiries or support, please contact:
 - Email: [k7aditya@gmail.com](mailto:k7aditya@gmail.com)
 
+## Contributors
+- Aditya Khairnar
+- Siddhenthi Uday Kumar
+- Jatavath Siddhartha Nayak
+- Suveeksha Reddy
+- Varshitha Reddy
+- Moulya Tammina
 
 
 

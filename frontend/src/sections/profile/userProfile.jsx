@@ -58,7 +58,7 @@ function UserProfile({ user, onChange }) {
     }
     const auth_token = localStorage.getItem('atoken'); 
     console.log(auth_token)
-    fetch('http://127.0.0.1:8000/api/id', {
+    fetch('https://semguide-zbku.onrender.com/api/id', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

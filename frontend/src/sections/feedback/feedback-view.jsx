@@ -43,7 +43,7 @@ export default function FeedbackView() {
       formData.append('likelihood_to_recommend', values.likelihoodToRecommend);
       formData.append('additional_feedback', values.additionalFeedback);
   
-      const response = await fetch('http://127.0.0.1:8000/api/feedback/', {
+      const response = await fetch('https://semguide-zbku.onrender.com/api/feedback/', {
         method: 'POST',
         body: formData,
       });

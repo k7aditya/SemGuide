@@ -62,7 +62,7 @@ function a11yProps(index) {
 async function FetchPYQ(SubjectCode) {
   try {
     const response = await fetch(
-      `http://localhost:8000/api/subjects/${SubjectCode}/documents/?document_type=PYQ`,
+      `http://https://semguide-zbku.onrender.com/api/subjects/${SubjectCode}/documents/?document_type=PYQ`,
       {
         // Example URL, adjust as necessary
         method: 'GET',
@@ -87,7 +87,7 @@ async function FetchPYQ(SubjectCode) {
 async function FetchNotes(SubjectCode) {
   try {
     const response = await fetch(
-      `http://localhost:8000/api/subjects/${SubjectCode}/documents/?document_type=Notes`,
+      `http://https://semguide-zbku.onrender.com/api/subjects/${SubjectCode}/documents/?document_type=Notes`,
       {
         // Example URL, adjust as necessary
         method: 'GET',
@@ -111,7 +111,7 @@ async function FetchNotes(SubjectCode) {
 }
 async function FetchLinks(SubjectCode) {
   try {
-    const response = await fetch(`http://localhost:8000/api/${SubjectCode}/links/`, {
+    const response = await fetch(`https://semguide-zbku.onrender.com/api/${SubjectCode}/links/`, {
       // Example URL, adjust as necessary
       method: 'GET',
       // subject: 'ITP',
@@ -208,7 +208,7 @@ export default function PapersView({ subjectCode }) {
     try {
       // Replace '/api/upload' with the correct endpoint for your backend
       // If your backend requires the subject ID, include it in the URL
-      const response = await fetch(`http://localhost:8000/api/subjects/${subjectCode}/documents/`, {
+      const response = await fetch(`https://semguide-zbku.onrender.com/api/subjects/${subjectCode}/documents/`, {
         // Example URL, adjust as necessary
         method: 'POST',
         body: formData,
@@ -243,7 +243,7 @@ export default function PapersView({ subjectCode }) {
     try {
       // Replace '/api/upload' with the correct endpoint for your backend
       // If your backend requires the subject ID, include it in the URL
-      const response = await fetch(`http://localhost:8000/api/subjects/${subjectCode}/documents/`, {
+      const response = await fetch(`https://semguide-zbku.onrender.com/api/subjects/${subjectCode}/documents/`, {
         // Example URL, adjust as necessary
         method: 'POST',
         body: formData,
@@ -277,7 +277,7 @@ export default function PapersView({ subjectCode }) {
     try {
       // Replace '/api/upload' with the correct endpoint for your backend
       // If your backend requires the subject ID, include it in the URL
-      const response = await fetch(`http://localhost:8000/api/${subjectCode}/links/`, {
+      const response = await fetch(`https://semguide-zbku.onrender.com/api/${subjectCode}/links/`, {
         // Example URL, adjust as necessary
         method: 'POST',
         body: formData,
@@ -311,7 +311,7 @@ export default function PapersView({ subjectCode }) {
     // Send a request to the backend to delete the document
     try {
       const response = await fetch(
-        `http://localhost:8000/api/subjects/${subjectCode}/documents/${documentId}`,
+        `https://semguide-zbku.onrender.com/api/subjects/${subjectCode}/documents/${documentId}`,
         {
           method: 'DELETE',
         }

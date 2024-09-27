@@ -54,7 +54,7 @@ export default function AccountPopover() {
     const refreshToken = localStorage.getItem('token'); // Assuming the refresh token is stored as 'token' in local storage
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/logout/', {
+      const response = await fetch('https://semguide-zbku.onrender.com/logout/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

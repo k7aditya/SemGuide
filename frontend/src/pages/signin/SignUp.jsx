@@ -43,7 +43,7 @@ function SignUp() {
       formData.append('password', password);
       formData.append('confirm_password', confirmPassword);
 
-      const response = await fetch('http://127.0.0.1:8000/api/register/', {
+      const response = await fetch('https://semguide-zbku.onrender.com/api/register/', {
         method: 'POST',
         body: formData,
       });

@@ -56,6 +56,7 @@ For any enquiries or support, please contact:
 ## Contributors
 - Aditya Khairnar
 - Siddhenthi Uday Kumar
+- Kushal Bansal
 - Jatavath Siddhartha Nayak
 - Nomula Suveeksha Reddy
 - Gajulapalli Sai Varshitha

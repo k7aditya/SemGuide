@@ -62,7 +62,7 @@ function a11yProps(index) {
 async function FetchPYQ(SubjectCode) {
   try {
     const response = await fetch(
-      `http://https://semguide-zbku.onrender.com/api/subjects/${SubjectCode}/documents/?document_type=PYQ`,
+      `https://semguide-zbku.onrender.com/api/subjects/${SubjectCode}/documents/?document_type=PYQ`,
       {
         // Example URL, adjust as necessary
         method: 'GET',
@@ -87,7 +87,7 @@ async function FetchPYQ(SubjectCode) {
 async function FetchNotes(SubjectCode) {
   try {
     const response = await fetch(
-      `http://https://semguide-zbku.onrender.com/api/subjects/${SubjectCode}/documents/?document_type=Notes`,
+      `https://semguide-zbku.onrender.com/api/subjects/${SubjectCode}/documents/?document_type=Notes`,
       {
         // Example URL, adjust as necessary
         method: 'GET',

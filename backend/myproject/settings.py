@@ -115,10 +115,10 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'deploytest_8i00',
-        'USER': 'deploytest_8i00_user',
-        'PASSWORD': '9VJBIWZWBIPNQohcVEWocDH9aRn2g3Vr',
-        'HOST': 'dpg-crqi2d5svqrc73cvge4g-a.oregon-postgres.render.com',
+        'NAME': 'test_ggmx',
+        'USER': 'test_ggmx_user',
+        'PASSWORD': 'EZkbVo29YZqb1OXRInQqRKlQ3LitgbCG',
+        'HOST': 'dpg-cu54rjjtq21c73e0prhg-a.oregon-postgres.render.com',
     }
 }
 

@@ -44,6 +44,8 @@ SemGuide is a comprehensive web application designed specifically for the studen
 ## Backend Setup
 Ensure that the backend server is running and properly configured to handle authentication and data retrieval. Update the API endpoints in the frontend code if necessary.
 
+## ** Backend Url: https://sem-guide-beta.vercel.app/
+
 ## Admin Credentials
 - **Username:** admin
 - **Password:** 12345.

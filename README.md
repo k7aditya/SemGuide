@@ -32,7 +32,7 @@ SemGuide is a comprehensive web application designed specifically for the studen
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/k7aditya/semguide.git
+   git clone https://github.com/udayk2977/semguide.git
    cd semguide
 2. **Install Dependencies:**
    ```bash
@@ -44,6 +44,8 @@ SemGuide is a comprehensive web application designed specifically for the studen
 ## Backend Setup
 Ensure that the backend server is running and properly configured to handle authentication and data retrieval. Update the API endpoints in the frontend code if necessary.
 
+## ** Backend Url: https://sem-guide-beta.vercel.app/
+
 ## Admin Credentials
 - **Username:** admin
 - **Password:** 12345.
@@ -51,7 +53,7 @@ Ensure that the backend server is running and properly configured to handle auth
 
 ## Contact
 For any enquiries or support, please contact:
-- Email: [k7aditya@gmail.com](mailto:k7aditya@gmail.com)
+- Email: [SemGuide@gmail.com](mailto:k7aditya@gmail.com)
 
 ## Contributors
 - Aditya Khairnar

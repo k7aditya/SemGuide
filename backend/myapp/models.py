@@ -28,8 +28,7 @@ class Document(models.Model):
     document_file = models.FileField(upload_to='documents/')
     def delete(self, *args, **kwargs):
         if self.document_file:
-            if os.path.isfile(self.document_file.path):
-                os.remove(self.document_file.path)
+            self.document_file.delete(save=False)
         super().delete(*args, **kwargs)
     def __str__(self):
         return f"{self.get_document_type_display()} - {self.subject.name}"

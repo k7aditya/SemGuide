@@ -53,7 +53,7 @@ export default function FeedbackView() {
       }
       const token = localStorage.getItem('token');
       // const data = await response.json();
-      console.log(token);
+      console.log('Successfully Submitted Feedback');
 
       // Handle any success actions here
     } catch (error) {

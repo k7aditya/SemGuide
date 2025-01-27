@@ -108,7 +108,7 @@ class LinkListCreate(generics.ListCreateAPIView):
 
 class FeedbackCreateAPIView(CreateAPIView):
     serializer_class = FeedbackSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)

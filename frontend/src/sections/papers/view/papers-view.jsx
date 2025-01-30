@@ -642,7 +642,7 @@ export default function PapersView({ subjectCode }) {
         </DialogActions>
       </Dialog>
     </>
-  );
+  );  
 }
 
 PapersView.propTypes = {

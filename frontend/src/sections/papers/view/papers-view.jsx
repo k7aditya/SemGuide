@@ -329,296 +329,123 @@ export default function PapersView({ subjectCode }) {
   // const handleDeleteLinks=async();
   return (
     <>
-      <Search />
-      <Box sx={{ width: '100%' }}>
-        <AppBar position="static" sx={{ bgcolor: 'transparent', boxShadow: 'none' }}>
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            indicatorColor="primary"
-            textColor="primary"
-            variant="fullWidth"
-            aria-label="full width tabs example"
-          >
-            <Tab label="PYQ" {...a11yProps(0)} />
-            <Tab label="Notes" {...a11yProps(1)} />
-            <Tab label="Links" {...a11yProps(2)} />
-            <Tab label="Info" {...a11yProps(3)} />
+      <Box sx={{ width: "100%" }}>
+        <AppBar position="static" sx={{ bgcolor: "transparent", boxShadow: "none" }}>
+          <Tabs value={value} onChange={handleChange} indicatorColor="primary" textColor="primary" variant="fullWidth">
+            <Tab label="PYQ" />
+            <Tab label="Notes" />
+            <Tab label="Links" />
+            <Tab label="Info" />
           </Tabs>
         </AppBar>
-        <TabPanel value={value} index={0} dir={theme.direction}>
-          {/* PYQS {subjectCode} */}
-          {/* <Button onClick={handleBackClick}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              className="bi bi-arrow-left"
-              viewBox="0 0 16 16"
-            >
-              <path
-                fillRule="evenodd"
-                d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"
-              />
-            </svg>  
-            {subjectCode}
-          </Button> */}
 
-          {role === 'true' ? <FileUpload onFileUpload={handlePyqsFileUpload} /> : null}
-          <div>
-            <Table celled>
-              <Table.Header>
-                <Table.Row>
-                  <Table.HeaderCell>ID</Table.HeaderCell>
-                  <Table.HeaderCell>Document Name</Table.HeaderCell>
-                  <Table.HeaderCell>
-                    <div style={{ display: 'flex', justifyContent: 'center' }}>Document Link</div>
-                  </Table.HeaderCell>
-                  {role === 'true' ? (
-                    <Table.HeaderCell>
-                      <div style={{ display: 'flex', justifyContent: 'center' }}>Delete</div>
-                    </Table.HeaderCell>
-                  ) : null}
-                </Table.Row>
-              </Table.Header>
-
-              <Table.Body>
-                {fetchedpyq.map((item) => (
-                  <Table.Row key={item.id}>
-                    <Table.Cell>{item.id}</Table.Cell>
-                    <Table.Cell>{item.document_file_name}</Table.Cell>
-                    <Table.Cell>
-                      <div style={{ display: 'flex', justifyContent: 'center' }}>
-                        <a href={item.document_file} target="_blank" rel="noopener noreferrer">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="20"
-                            height="20"
-                            fill="currentColor"
-                            className="bi bi-download"
-                            viewBox="0 0 16 16"
-                          >
-                            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5" />
-                            <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z" />
-                          </svg>
-                        </a>
-                      </div>
-                    </Table.Cell>
-
-                    <Table.Cell>
-                      <div style={{ display: 'flex', justifyContent: 'center' }}>
-                        {role === 'true' ? (
-                          <Button
-                            onClick={() => {
-                              setDeleteId(item.id);
-                              setOpen(true);
-                            }}
-                          >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="16"
-                              height="16"
-                              fill="currentColor"
-                              className="bi bi-trash3"
-                              viewBox="0 0 16 16"
-                            >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                fill="currentColor"
-                                viewBox="0 0 16 16"
-                              >
-                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
-                              </svg>
-                            </svg>
-                          </Button>
-                        ) : null}
-                      </div>
-                    </Table.Cell>
-                  </Table.Row>
-                ))}
-              </Table.Body>
-            </Table>
-          </div>
-        </TabPanel>
-        <TabPanel value={value} index={1} dir={theme.direction}>
-          {/* Notes {subjectCode} */}
-          {role === 'true' ? <FileUpload onFileUpload={handleNotesFileUpload} /> : null}
-          <div>
-            <Table celled>
-              <Table.Header>
-                <Table.Row>
-                  <Table.HeaderCell>ID</Table.HeaderCell>
-                  <Table.HeaderCell>Document Name</Table.HeaderCell>
-                  <Table.HeaderCell>
-                    <div style={{ display: 'flex', justifyContent: 'center' }}>Document Link</div>
-                  </Table.HeaderCell>
-                  <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    {role === 'true' ? <Table.HeaderCell>Delete</Table.HeaderCell> : null}
-                  </div>
-                </Table.Row>
-              </Table.Header>
-
-              <Table.Body>
-                {fetchednotes.map((item) => (
-                  <Table.Row key={item.id}>
-                    <Table.Cell>{item.id}</Table.Cell>
-                    <Table.Cell>{item.document_file_name}</Table.Cell>
+        {/* PYQ Tab */}
+        <Box hidden={value !== 0}>
+          {role === "true" && <FileUpload onFileUpload={handlePyqsFileUpload} />}
+          <Table celled>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>ID</Table.HeaderCell>
+                <Table.HeaderCell>Document Name</Table.HeaderCell>
+                <Table.HeaderCell textAlign="center">Document Link</Table.HeaderCell>
+                {role === "true" && <Table.HeaderCell textAlign="center">Delete</Table.HeaderCell>}
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>
+              {fetchedpyq.map((item, index) => (
+                <Table.Row key={index}>
+                  <Table.Cell>{index + 1}</Table.Cell>
+                  <Table.Cell>{item.document_file_name}</Table.Cell>
+                  <Table.Cell textAlign="center">
+                    <a href={item.document_file} target="_blank" rel="noopener noreferrer">
+                      📥 Download
+                    </a>
+                  </Table.Cell>
+                  {role === "true" && (
                     <Table.Cell textAlign="center">
-                      {' '}
-                      {/* Align the content in the center */}
-                      <div style={{ display: 'flex', justifyContent: 'center' }}>
-                        <a href={item.document_file} target="_blank" rel="noopener noreferrer">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="20"
-                            height="20"
-                            fill="currentColor"
-                            className="bi bi-download"
-                            viewBox="0 0 16 16"
-                          >
-                            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5" />
-                            <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z" />
-                          </svg>
-                        </a>
-                      </div>
+                      <Button onClick={() => { setDeleteId(item.id); setOpen(true); }}>🗑 Delete</Button>
                     </Table.Cell>
-                    <Table.Cell>
-                      <div style={{ display: 'flex', justifyContent: 'center' }}>
-                        {role === 'true' ? (
-                          <Button
-                            onClick={() => {
-                              setDeleteId(item.id);
-                              setOpen(true);
-                            }}
-                          >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="16"
-                              height="16"
-                              fill="currentColor"
-                              className="bi bi-trash3"
-                              viewBox="0 0 16 16"
-                            >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                fill="currentColor"
-                                viewBox="0 0 16 16"
-                              >
-                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
-                              </svg>
-                            </svg>
-                          </Button>
-                        ) : null}
-                      </div>
-                    </Table.Cell>
-                  </Table.Row>
-                ))}
-              </Table.Body>
-            </Table>
-          </div>
-        </TabPanel>
-
-        <TabPanel value={value} index={2} dir={theme.direction}>
-          {/* Links {subjectCode} */}
-          {role === 'true' ? <LinkUpload onLinkUpload={handleLinksFileUpload} /> : null}
-          <div>
-            <Table celled>
-              <Table.Header>
-                <Table.Row>
-                  <Table.HeaderCell>ID</Table.HeaderCell>
-                  <Table.HeaderCell>Links </Table.HeaderCell>
-                  <Table.HeaderCell>
-                    <div style={{ display: 'flex', justifyContent: 'center' }}>Visit Link </div>
-                  </Table.HeaderCell>
-                  <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    {role === 'true' ? <Table.HeaderCell>Delete</Table.HeaderCell> : null}
-                  </div>
+                  )}
                 </Table.Row>
-              </Table.Header>
+              ))}
+            </Table.Body>
+          </Table>
+        </Box>
 
-              <Table.Body>
-                {fetchedlinks.map((item) => (
-                  <Table.Row key={item.id}>
-                    <Table.Cell>{item.id}</Table.Cell>
-                    <Table.Cell>{item.link_url}</Table.Cell>
+        {/* Notes Tab */}
+        <Box hidden={value !== 1}>
+          {role === "true" && <FileUpload onFileUpload={handleNotesFileUpload} />}
+          <Table celled>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>ID</Table.HeaderCell>
+                <Table.HeaderCell>Document Name</Table.HeaderCell>
+                <Table.HeaderCell textAlign="center">Document Link</Table.HeaderCell>
+                {role === "true" && <Table.HeaderCell textAlign="center">Delete</Table.HeaderCell>}
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>
+              {fetchednotes.map((item, index) => (
+                <Table.Row key={index}>
+                  <Table.Cell>{index + 1}</Table.Cell>
+                  <Table.Cell>{item.document_file_name}</Table.Cell>
+                  <Table.Cell textAlign="center">
+                    <a href={item.document_file} target="_blank" rel="noopener noreferrer">
+                      📥 Download
+                    </a>
+                  </Table.Cell>
+                  {role === "true" && (
                     <Table.Cell textAlign="center">
-                      {' '}
-                      {/* Align the content in the center */}
-                      <div style={{ display: 'flex', justifyContent: 'center' }}>
-                        <a href={item.link_url} target="_blank" rel="noopener noreferrer">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="20"
-                            height="20"
-                            fill="currentColor"
-                            className="bi bi-box-arrow-up-right"
-                            viewBox="0 0 16 16"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"
-                            />
-                            <path
-                              fillRule="evenodd"
-                              d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"
-                            />
-                          </svg>
-                        </a>
-                      </div>
+                      <Button onClick={() => { setDeleteId(item.id); setOpen(true); }}>🗑 Delete</Button>
                     </Table.Cell>
-                    <Table.Cell>
-                      <div style={{ display: 'flex', justifyContent: 'center' }}>
-                        {role === 'true' ? (
-                          <Button
-                            onClick={() => {
-                              setDeleteId(item.id);
-                              setOpen(true);
-                            }}
-                          >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="16"
-                              height="16"
-                              fill="currentColor"
-                              className="bi bi-trash3"
-                              viewBox="0 0 16 16"
-                            >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                fill="currentColor"
-                                viewBox="0 0 16 16"
-                              >
-                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
-                              </svg>
-                            </svg>
-                          </Button>
-                        ) : null}
-                      </div>
-                    </Table.Cell>
-                  </Table.Row>
-                ))}
-              </Table.Body>
-            </Table>
-          </div>
-        </TabPanel>
+                  )}
+                </Table.Row>
+              ))}
+            </Table.Body>
+          </Table>
+        </Box>
 
-        <TabPanel value={value} index={3} dir={theme.direction}>
-          Info {subjectCode}
-        </TabPanel>
+        {/* Links Tab */}
+        <Box hidden={value !== 2}>
+          {role === "true" && <LinkUpload onLinkUpload={handleLinksFileUpload} />}
+          <Table celled>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>ID</Table.HeaderCell>
+                <Table.HeaderCell>Links</Table.HeaderCell>
+                <Table.HeaderCell textAlign="center">Visit Link</Table.HeaderCell>
+                {role === "true" && <Table.HeaderCell textAlign="center">Delete</Table.HeaderCell>}
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>
+              {fetchedlinks.map((item, index) => (
+                <Table.Row key={index}>
+                  <Table.Cell>{index + 1}</Table.Cell>
+                  <Table.Cell>{item.link_url}</Table.Cell>
+                  <Table.Cell textAlign="center">
+                    <a href={item.link_url} target="_blank" rel="noopener noreferrer">
+                      🔗 Open Link
+                    </a>
+                  </Table.Cell>
+                  {role === "true" && (
+                    <Table.Cell textAlign="center">
+                      <Button onClick={() => { setDeleteId(item.id); setOpen(true); }}>🗑 Delete</Button>
+                    </Table.Cell>
+                  )}
+                </Table.Row>
+              ))}
+            </Table.Body>
+          </Table>
+        </Box>
+
+        {/* Info Tab */}
+        <Box hidden={value !== 3}>
+          <p>Info Section</p>
+        </Box>
       </Box>
-      <Dialog
-        open={open}
-        onClose={() => setOpen(false)}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
+
+      {/* Delete Confirmation Dialog */}
+      <Dialog open={open} onClose={() => setOpen(false)} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
         <DialogTitle id="alert-dialog-title">Confirm Deletion</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
@@ -626,19 +453,8 @@ export default function PapersView({ subjectCode }) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setOpen(false)} color="primary">
-            Cancel
-          </Button>
-          <Button
-            onClick={() => {
-              handleDelete(deleteId);
-              setOpen(false);
-            }}
-            color="primary"
-            autoFocus
-          >
-            Confirm
-          </Button>
+          <Button onClick={() => setOpen(false)} color="primary">Cancel</Button>
+          <Button onClick={() => { handleDelete(deleteId); setOpen(false); }} color="primary" autoFocus>Confirm</Button>
         </DialogActions>
       </Dialog>
     </>

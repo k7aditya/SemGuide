@@ -121,17 +121,23 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 #         'HOST': 'dpg-cu54rjjtq21c73e0prhg-a.oregon-postgres.render.com',
 #     }
 # }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'djongo',
+#         'NAME': 'mongo', 
+#         'CLIENT': {
+#             'host': 'mongodb://mongo:QxOMxVGykIpDFUMkuPkFmXsipVFkSIhK@interchange.proxy.rlwy.net:12453'
+#         }
+#     }
+# }
+
+import dj_database_url
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'mongo', 
-        'CLIENT': {
-            'host': 'mongodb://mongo:QxOMxVGykIpDFUMkuPkFmXsipVFkSIhK@interchange.proxy.rlwy.net:12453'
-        }
-    }
+    'default': dj_database_url.config(
+        default='postgresql://postgres:IWkUowCfJTPTmFltVlToPoCVnXUOlEGU@tramway.proxy.rlwy.net:53631/railway'
+    )
 }
-
-
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 

@@ -1,4 +1,6 @@
 export const account = {};
+export { populateAccount };
+
 
 const fetchUserDetails = async () => {
   const token = localStorage.getItem('token');
@@ -44,5 +46,5 @@ const populateAccount = async () => {
     console.error('Error populating account:', error.message);
   }
 };
-
+ 
 populateAccount();

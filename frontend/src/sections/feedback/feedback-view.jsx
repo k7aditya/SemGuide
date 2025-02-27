@@ -51,7 +51,7 @@ export default function FeedbackView() {
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-      const token = localStorage.getItem('token');
+      // const token = localStorage.getItem('token');
       // const data = await response.json();
       console.log('Successfully Submitted Feedback');
 

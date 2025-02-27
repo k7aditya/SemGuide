@@ -41,7 +41,7 @@ function UserProfile({ user, onChange }) {
 
   const handleCurrentPasswordChange = (e) => {
     setCurrentPassword(e.target.value);
-  }; 
+  };  
 
   const handleNewPasswordChange = (e) => {
     setNewPassword(e.target.value);

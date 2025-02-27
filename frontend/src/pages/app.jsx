@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet-async';
 import { AppView } from 'src/sections/overview/view';
 
 import './appPage.css';
- 
+  
 export default function AppPage() {
   // const [selectedSemester, setSelectedSemester] = useState('1');
  const selectedSemester = parseInt(localStorage.getItem('selectedSemester'), 10);

@@ -11,7 +11,7 @@ import Tabs from '@mui/material/Tabs';
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
-import { useTheme } from '@mui/material/styles';
+// import { useTheme } from '@mui/material/styles';
 // import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -19,7 +19,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 
-import Search from '../search';
+// import Search from '../search';
 import FileUpload from './fileUpload';
 import LinkUpload from './linkUpload';
 
@@ -52,12 +52,12 @@ TabPanel.propTypes = {
   value: PropTypes.number.isRequired,
 };
 
-function a11yProps(index) {
-  return {
-    id: `full-width-tab-${index}`,
-    'aria-controls': `full-width-tabpanel-${index}`,
-  };
-}
+// function a11yProps(index) {
+//   return {
+//     id: `full-width-tab-${index}`,
+//     'aria-controls': `full-width-tabpanel-${index}`,
+//   };
+// }
 
 async function FetchPYQ(SubjectCode) {
   try {
@@ -142,7 +142,7 @@ export default function PapersView({ subjectCode }) {
   const [fetchedpyq, setfetchedpyq] = useState([]);
   const [fetchednotes, setfetchednotes] = useState([]);
   const [fetchedlinks, setfetchedlinks] = useState([]);
-  const theme = useTheme();
+  // const theme = useTheme();
   const [value, setValue] = useState(0);
   const [pyqsUploadedFiles, setPyqsUploadedFiles] = useState([]);
   const [notesUploadedFiles, setNotesUploadedFiles] = useState([]);

@@ -1,5 +1,5 @@
-import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from 'react';
 
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
@@ -16,30 +16,25 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 
-import { account } from 'src/_mock/account';
-import AuthContext from 'src/context/authContext'; // Adjust the import path as necessary
-
-// ----------------------------------------------------------------------
-
-// const MENU_OPTIONS = [
-//   {
-//     label: 'Home',
-//     icon: 'eva:home-fill',
-//   },
-//   {
-//     label: 'Profile',
-//     icon: 'eva:person-fill',
-//   },
-// ];
-
-// ----------------------------------------------------------------------
+import AuthContext from 'src/context/authContext';
+import { account, populateAccount } from 'src/_mock/account';
 
 export default function AccountPopover() {
   const [logoutDialogOpen, setLogoutDialogOpen] = useState(false);
-
   const [open, setOpen] = useState(null);
   const navigate = useNavigate();
   const { logout } = useContext(AuthContext);
+
+  // Local state for user info
+  const [user, setUser] = useState({ ...account });
+
+  useEffect(() => {
+    const fetchAccount = async () => {
+      await populateAccount();
+      setUser({ ...account });
+    };
+    fetchAccount();
+  }, []);
 
   const handleOpen = (event) => {
     setOpen(event.currentTarget);
@@ -48,23 +43,22 @@ export default function AccountPopover() {
   const handleClose = () => {
     setOpen(null);
   };
+
   const handleLogout = async () => {
     logout();
     window.location.reload();
-    const refreshToken = localStorage.getItem('token'); // Assuming the refresh token is stored as 'token' in local storage
+    const refreshToken = localStorage.getItem('token');
 
     try {
       const response = await fetch('https://semguide-zbku.onrender.com/logout/', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ refresh_token: refreshToken }),
       });
 
       if (response.ok) {
         localStorage.removeItem('token');
-        console.log('successfully logged out');
+        console.log('Successfully logged out');
         navigate('/');
         handleClose();
       } else {
@@ -90,15 +84,15 @@ export default function AccountPopover() {
         }}
       >
         <Avatar
-          src={account.photoURL}
-          alt={account.displayName}
+          src={user.photoURL || '/default-avatar.jpg'}
+          alt={user.displayName || 'User'}
           sx={{
             width: 50,
             height: 50,
             border: (theme) => `solid 2px ${theme.palette.background.default}`,
           }}
         >
-          {account.displayName?.charAt(0)?.toUpperCase()}
+          {user.displayName?.charAt(0)?.toUpperCase()}
         </Avatar>
       </IconButton>
 
@@ -108,31 +102,19 @@ export default function AccountPopover() {
         onClose={handleClose}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
         transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-        PaperProps={{
-          sx: {
-            p: 0,
-            mt: 1,
-            ml: 0.75,
-            width: 200,
-          },
-        }}
+        PaperProps={{ sx: { p: 0, mt: 1, ml: 0.75, width: 200 } }}
       >
         <Box sx={{ my: 1.5, px: 2 }}>
           <Typography variant="subtitle2" noWrap>
-            {account.displayName}
+            {user.displayName || 'Loading...'}
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary' }} noWrap>
-            {account.email}
+            {user.email || ''}
           </Typography>
         </Box>
 
         <Divider sx={{ borderStyle: 'dashed' }} />
 
-        {/* {MENU_OPTIONS.map((option) => (
-          <MenuItem key={option.label} onClick={handleClose}>
-            {option.label}
-          </MenuItem>
-        ))} */}
         <Link to="/" style={{ textDecoration: 'none', color: '#637381' }}>
           <MenuItem key="Home" onClick={handleClose}>
             Home
@@ -148,12 +130,13 @@ export default function AccountPopover() {
         <MenuItem
           disableRipple
           disableTouchRipple
-          onClick={() => setLogoutDialogOpen(true)} // Open the dialog
+          onClick={() => setLogoutDialogOpen(true)}
           sx={{ typography: 'body2', color: 'error.main', py: 1.5 }}
         >
           Logout
         </MenuItem>
       </Popover>
+
       <Dialog
         open={logoutDialogOpen}
         onClose={() => setLogoutDialogOpen(false)}

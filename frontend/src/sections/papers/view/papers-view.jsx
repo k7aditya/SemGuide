@@ -22,6 +22,13 @@ import DialogContentText from '@mui/material/DialogContentText';
 // import Search from '../search';
 import FileUpload from './fileUpload';
 import LinkUpload from './linkUpload';
+// import SubjectsInfo from './subjectInfo';
+import SubjectsInfo1 from './subjectInfo1';
+import SubjectsInfo2 from './subjectInfo2';
+import SubjectsInfo3 from './subjectInfo3';
+import SubjectsInfo4 from './subjectInfo4';
+import SubjectsInfo5 from './subjectInfo5';
+import SubjectsInfo6 from './subjectInfo6';
 
 const role = localStorage.getItem('user_type');
 console.log(role);
@@ -52,12 +59,32 @@ TabPanel.propTypes = {
   value: PropTypes.number.isRequired,
 };
 
-// function a11yProps(index) {
-//   return {
-//     id: `full-width-tab-${index}`,
-//     'aria-controls': `full-width-tabpanel-${index}`,
-//   };
-// }
+const renderInfoSection = (subjectCode) => {
+  let subjectInfo = '';
+  
+  if (subjectCode === '1') {
+    subjectInfo = <SubjectsInfo1 />;
+  } else if (subjectCode === '2') {
+    subjectInfo = <SubjectsInfo2 />;
+  } else if (subjectCode === '3') {
+    subjectInfo = <SubjectsInfo3 />;
+  } else if (subjectCode === '4') {
+    subjectInfo = <SubjectsInfo4 />;
+  } else if (subjectCode === '5') {
+    subjectInfo = <SubjectsInfo5 />;
+  } else if (subjectCode === '6') {
+    subjectInfo = <SubjectsInfo6 />;
+  } else {
+    subjectInfo = 'Subject information not available.';
+  }
+
+  return (
+    <Box p={3}>
+      {/* <Typography variant="h6">Subject Information</Typography> */}
+      <Typography>{subjectInfo}</Typography>
+    </Box>
+  );
+};
 
 async function FetchPYQ(SubjectCode) {
   try {
@@ -329,9 +356,15 @@ export default function PapersView({ subjectCode }) {
   // const handleDeleteLinks=async();
   return (
     <>
-      <Box sx={{ width: "100%" }}>
-        <AppBar position="static" sx={{ bgcolor: "transparent", boxShadow: "none" }}>
-          <Tabs value={value} onChange={handleChange} indicatorColor="primary" textColor="primary" variant="fullWidth">
+      <Box sx={{ width: '100%' }}>
+        <AppBar position="static" sx={{ bgcolor: 'transparent', boxShadow: 'none' }}>
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            indicatorColor="primary"
+            textColor="primary"
+            variant="fullWidth"
+          >
             <Tab label="PYQ" />
             <Tab label="Notes" />
             <Tab label="Links" />
@@ -341,14 +374,14 @@ export default function PapersView({ subjectCode }) {
 
         {/* PYQ Tab */}
         <Box hidden={value !== 0}>
-          {role === "true" && <FileUpload onFileUpload={handlePyqsFileUpload} />}
+          {role === 'true' && <FileUpload onFileUpload={handlePyqsFileUpload} />}
           <Table celled>
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell>ID</Table.HeaderCell>
                 <Table.HeaderCell>Document Name</Table.HeaderCell>
                 <Table.HeaderCell textAlign="center">Document Link</Table.HeaderCell>
-                {role === "true" && <Table.HeaderCell textAlign="center">Delete</Table.HeaderCell>}
+                {role === 'true' && <Table.HeaderCell textAlign="center">Delete</Table.HeaderCell>}
               </Table.Row>
             </Table.Header>
             <Table.Body>
@@ -361,9 +394,16 @@ export default function PapersView({ subjectCode }) {
                       📥 Download
                     </a>
                   </Table.Cell>
-                  {role === "true" && (
+                  {role === 'true' && (
                     <Table.Cell textAlign="center">
-                      <Button onClick={() => { setDeleteId(item.id); setOpen(true); }}>🗑 Delete</Button>
+                      <Button
+                        onClick={() => {
+                          setDeleteId(item.id);
+                          setOpen(true);
+                        }}
+                      >
+                        🗑 Delete
+                      </Button>
                     </Table.Cell>
                   )}
                 </Table.Row>
@@ -374,14 +414,14 @@ export default function PapersView({ subjectCode }) {
 
         {/* Notes Tab */}
         <Box hidden={value !== 1}>
-          {role === "true" && <FileUpload onFileUpload={handleNotesFileUpload} />}
+          {role === 'true' && <FileUpload onFileUpload={handleNotesFileUpload} />}
           <Table celled>
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell>ID</Table.HeaderCell>
                 <Table.HeaderCell>Document Name</Table.HeaderCell>
                 <Table.HeaderCell textAlign="center">Document Link</Table.HeaderCell>
-                {role === "true" && <Table.HeaderCell textAlign="center">Delete</Table.HeaderCell>}
+                {role === 'true' && <Table.HeaderCell textAlign="center">Delete</Table.HeaderCell>}
               </Table.Row>
             </Table.Header>
             <Table.Body>
@@ -394,9 +434,16 @@ export default function PapersView({ subjectCode }) {
                       📥 Download
                     </a>
                   </Table.Cell>
-                  {role === "true" && (
+                  {role === 'true' && (
                     <Table.Cell textAlign="center">
-                      <Button onClick={() => { setDeleteId(item.id); setOpen(true); }}>🗑 Delete</Button>
+                      <Button
+                        onClick={() => {
+                          setDeleteId(item.id);
+                          setOpen(true);
+                        }}
+                      >
+                        🗑 Delete
+                      </Button>
                     </Table.Cell>
                   )}
                 </Table.Row>
@@ -407,14 +454,14 @@ export default function PapersView({ subjectCode }) {
 
         {/* Links Tab */}
         <Box hidden={value !== 2}>
-          {role === "true" && <LinkUpload onLinkUpload={handleLinksFileUpload} />}
+          {role === 'true' && <LinkUpload onLinkUpload={handleLinksFileUpload} />}
           <Table celled>
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell>ID</Table.HeaderCell>
                 <Table.HeaderCell>Links</Table.HeaderCell>
                 <Table.HeaderCell textAlign="center">Visit Link</Table.HeaderCell>
-                {role === "true" && <Table.HeaderCell textAlign="center">Delete</Table.HeaderCell>}
+                {role === 'true' && <Table.HeaderCell textAlign="center">Delete</Table.HeaderCell>}
               </Table.Row>
             </Table.Header>
             <Table.Body>
@@ -427,9 +474,16 @@ export default function PapersView({ subjectCode }) {
                       🔗 Open Link
                     </a>
                   </Table.Cell>
-                  {role === "true" && (
+                  {role === 'true' && (
                     <Table.Cell textAlign="center">
-                      <Button onClick={() => { setDeleteId(item.id); setOpen(true); }}>🗑 Delete</Button>
+                      <Button
+                        onClick={() => {
+                          setDeleteId(item.id);
+                          setOpen(true);
+                        }}
+                      >
+                        🗑 Delete
+                      </Button>
                     </Table.Cell>
                   )}
                 </Table.Row>
@@ -440,12 +494,17 @@ export default function PapersView({ subjectCode }) {
 
         {/* Info Tab */}
         <Box hidden={value !== 3}>
-          <p>Info Section</p>
+          <p> {renderInfoSection(subjectCode)}</p>
         </Box>
       </Box>
 
       {/* Delete Confirmation Dialog */}
-      <Dialog open={open} onClose={() => setOpen(false)} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
+      <Dialog
+        open={open}
+        onClose={() => setOpen(false)}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
         <DialogTitle id="alert-dialog-title">Confirm Deletion</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
@@ -453,8 +512,19 @@ export default function PapersView({ subjectCode }) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setOpen(false)} color="primary">Cancel</Button>
-          <Button onClick={() => { handleDelete(deleteId); setOpen(false); }} color="primary" autoFocus>Confirm</Button>
+          <Button onClick={() => setOpen(false)} color="primary">
+            Cancel
+          </Button>
+          <Button
+            onClick={() => {
+              handleDelete(deleteId);
+              setOpen(false);
+            }}
+            color="primary"
+            autoFocus
+          >
+            Confirm
+          </Button>
         </DialogActions>
       </Dialog>
     </>

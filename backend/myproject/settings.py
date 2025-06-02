@@ -135,7 +135,7 @@ import dj_database_url
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://postgres:IWkUowCfJTPTmFltVlToPoCVnXUOlEGU@tramway.proxy.rlwy.net:53631/railway'
+        default='postgresql://postgres:bWwchHRWlcCnJTQkdJNJPYFslGKNSTFQ@maglev.proxy.rlwy.net:13995/railway'
     )
 }
 # Password validation
